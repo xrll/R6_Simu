@@ -1,0 +1,204 @@
+﻿<UserControl x:Class="R6_Simu.Home"
+             xmlns:h="http://helix-toolkit.org/wpf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:local="clr-namespace:R6_Simu"
+             xmlns:Control="clr-namespace:R6_Simu.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <h:HelixViewport3D x:Name="viewPort3d" ModelUpDirection="0,0,1" ShowCoordinateSystem="True" ShowCameraInfo="False" ViewCubeVerticalPosition="Bottom" CoordinateSystemLabelForeground="Blue" CoordinateSystemVerticalPosition="Center" CoordinateSystemHorizontalPosition="Right" CoordinateSystemHeight="150" CoordinateSystemWidth="150" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Unspecified" BorderBrush="Black" BorderThickness="2"  IsManipulationEnabled="True" ChangeFieldOfViewCursor="ScrollNS" PanCursor="Hand" RotateCursor="SizeAll" ZoomCursor="SizeNS" ZoomRectangleCursor="ScrollSE">
+                <h:HelixViewport3D.Camera>
+                    <PerspectiveCamera Position="142, 176, 202"  LookDirection="-142, -176, -202" FieldOfView="45" UpDirection="0,0,1"/>
+                </h:HelixViewport3D.Camera>
+                <h:DefaultLights/>
+
+                <h:PipeVisual3D x:Name="v0" Diameter="10"   Point2="0,0,1" Point1="0,0,-3" Fill="Purple" Visible="{Binding ElementName=jA,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v1" Diameter="2.5"   Point2="{Binding J12}" Point1="0,0,0" Fill="Purple" Visible="{Binding ElementName=jA,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v12" Diameter="6"   Point2="{Binding J122}" Point1="{Binding J121}" Fill="Purple" Visible="{Binding ElementName=jA,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v2" Diameter="5"   Point2="{Binding J22}" Point1="{Binding J21}" Fill="Blue" Visible="{Binding ElementName=jB,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v23" Diameter="6"   Point2="{Binding J222}" Point1="{Binding J221}" Fill="Blue" Visible="{Binding ElementName=jB,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v3" Diameter="5"   Point2="{Binding J32}" Point1="{Binding J31}" Fill="Cyan" Visible="{Binding ElementName=jC,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v34" Diameter="6"   Point2="{Binding J322}" Point1="{Binding J321}" Fill="Cyan" Visible="{Binding ElementName=jC,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v4" Diameter="3"   Point2="{Binding J42}" Point1="{Binding J41}" Fill="Green" Visible="{Binding ElementName=jD,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v45" Diameter="4"   Point2="{Binding J422}" Point1="{Binding J421}" Fill="Green" Visible="{Binding ElementName=jD,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v5" Diameter="3" Point2="{Binding J52}" Point1="{Binding J51}" Fill="Orange" Visible="{Binding ElementName=jE,Path=IsChecked}"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v6" Diameter="0.5" Point2="{Binding J62}" Point1="{Binding J61}" Fill="Red" Visible="{Binding ElementName=jF,Path=IsChecked}"></h:PipeVisual3D>
+                <h:SphereVisual3D x:Name="v7" Center="{Binding J63}" Radius="1.5" Fill="Red"></h:SphereVisual3D>
+
+                <h:BoxVisual3D x:Name="c1"  Fill="DarkGray" Center="41,-40,10" Height="10" Length="2" Width="60">
+                    <h:BoxVisual3D.Transform>
+                        <RotateTransform3D CenterX="0" CenterY="0" CenterZ="{Binding Tz}">
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="-30" Axis="1,0,0" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </h:BoxVisual3D.Transform>
+                </h:BoxVisual3D>
+                <h:BoxVisual3D x:Name="c2" Fill="DarkGray" Center="35,-40,6" Height="2" Length="10" Width="60">
+                    <h:BoxVisual3D.Transform>
+                        <RotateTransform3D CenterX="0" CenterY="0" CenterZ="{Binding Tz}">
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="-30" Axis="1,0,0" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </h:BoxVisual3D.Transform>
+                </h:BoxVisual3D>
+                <h:TubeVisual3D x:Name="c20" Fill="OrangeRed" Diameter="2">
+                    <h:TubeVisual3D.Transform>
+                        <RotateTransform3D CenterX="0" CenterY="0" CenterZ="{Binding Tz}">
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Angle="-30" Axis="1,0,0" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </h:TubeVisual3D.Transform>
+                </h:TubeVisual3D>
+
+                <h:BoxVisual3D x:Name="c3" Fill="DarkGray" Center="0,0,10" Transform="{h:Translate 40,30,0}"  Height="1" Length="30" Width="30"></h:BoxVisual3D>
+                <h:PipeVisual3D x:Name="c4"  Point1="0,0,10" Point2="0,0,20" Transform="{h:Translate 40,30,0}" Diameter="20" InnerDiameter="18"  Fill="DarkGray"/>
+                <h:TubeVisual3D x:Name="c30" Fill="OrangeRed" Diameter="2" Transform="{h:Translate 40,30,0}"></h:TubeVisual3D>
+
+                <h:ArrowVisual3D x:Name="n1"  Point1="{Binding J21}" Point2="{Binding J1n}" Diameter="1" Fill="Red" Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o1" Point1="{Binding J21}" Point2="{Binding J1o}" Diameter="1" Fill="Orange"  Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a1" Point1="{Binding J21}" Point2="{Binding J1a}" Diameter="1" Fill="Green"  Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n2" Point1="{Binding J31}" Point2="{Binding J2n}" Diameter="1"  Fill="Red"  Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o2" Point1="{Binding J31}" Point2="{Binding J2o}" Diameter="1" Fill="Orange"  Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a2" Point1="{Binding J31}" Point2="{Binding J2a}" Diameter="1" Fill="Green"  Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n3" Point1="{Binding J41}" Point2="{Binding J3n}" Diameter="1"  Fill="Red"  Visible="{Binding ElementName=vC,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o3" Point1="{Binding J41}" Point2="{Binding J3o}" Diameter="1" Fill="Orange"  Visible="{Binding ElementName=vC,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a3" Point1="{Binding J41}" Point2="{Binding J3a}" Diameter="1" Fill="Green"  Visible="{Binding ElementName=vC,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n4" Point1="{Binding J42}" Point2="{Binding J4n}" Diameter="1"  Fill="Red"  Visible="{Binding ElementName=vD,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o4" Point1="{Binding J42}" Point2="{Binding J4o}" Diameter="1" Fill="Orange"  Visible="{Binding ElementName=vD,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a4" Point1="{Binding J42}" Point2="{Binding J4a}" Diameter="1" Fill="Green"  Visible="{Binding ElementName=vD,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n5" Point1="{Binding J52}" Point2="{Binding J5n}" Diameter="1"  Fill="Red"  Visible="{Binding ElementName=vE,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o5" Point1="{Binding J52}" Point2="{Binding J5o}" Diameter="1" Fill="Orange" Visible="{Binding ElementName=vE,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a5" Point1="{Binding J52}" Point2="{Binding J5a}" Diameter="1" Fill="Green" Visible="{Binding ElementName=vE,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n6" Point1="{Binding J62}" Point2="{Binding J6n}" Diameter="1"  Fill="Red" Visible="{Binding ElementName=vF,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o6" Point1="{Binding J62}" Point2="{Binding J6o}" Diameter="1" Fill="Orange" Visible="{Binding ElementName=vF,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a6" Point1="{Binding J62}" Point2="{Binding J6a}" Diameter="1" Fill="Green" Visible="{Binding ElementName=vF,Path=IsChecked}"></h:ArrowVisual3D>
+                <!--<h:RectangleVisual3D Normal="0,1,0" LengthDirection="1,0,0" Width="100" Length="100" Fill="#33FF0000" />-->
+                <!--<h:RectangleVisual3D Normal="0,1,0" LengthDirection="0,0,1" Width="200" Length="200" Fill="#3800FF00"/>-->
+                <h:RectangleVisual3D Normal="0,0,1" LengthDirection="0,1,0" Width="200" Length="200"  Fill="#330000FF"/>
+            </h:HelixViewport3D>
+        </Grid>
+        <ScrollViewer x:Name="ScrollViewer" Height="780" VerticalAlignment="Top"
+                                     Grid.Column="1"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      VerticalScrollBarVisibility="Visible">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel>
+                    <Control:JAngles x:Name="V6" OnJointValueChanged="Rot_OnRotValueChanged"></Control:JAngles>
+                    <materialDesign:Card Margin="3 3 3 3"  materialDesign:ElevationAssist.Elevation="Dp2">
+                        <Expander Header="显示关节轴位姿" >
+                            <Grid Margin="2 8 2 8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <CheckBox Content="J1" IsChecked="True" x:Name="jA" Grid.Column="0" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="J2" IsChecked="True" x:Name="jB" Grid.Column="1" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="J3" IsChecked="True" x:Name="jC" Grid.Column="2" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="J4" IsChecked="True" x:Name="jD" Grid.Column="3" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="J5" IsChecked="True" x:Name="jE" Grid.Column="4" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="J6" IsChecked="True" x:Name="jF" Grid.Column="5" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V1" IsChecked="False" x:Name="vA" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V2" IsChecked="False" x:Name="vB" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V3" IsChecked="False" x:Name="vC" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V4" IsChecked="False" x:Name="vD" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V5" IsChecked="False" x:Name="vE" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center"></CheckBox>
+                                <CheckBox Content="V6" IsChecked="True" x:Name="vF" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center"></CheckBox>
+                            </Grid>
+                        </Expander>
+                    </materialDesign:Card>
+                    <Control:JOutput x:Name="end"  Margin="3 3 3 3" ></Control:JOutput>
+                    <Control:Inverse x:Name="iverse" Margin="3 3 3 3" ></Control:Inverse>
+                    <Control:Jacobi Margin="2 2 2 2" ></Control:Jacobi>
+                    <Control:Differential Margin="2 2 2 2" ></Control:Differential>
+                    <Grid Margin="6 2 2 2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" 
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignFloatingActionButton}" Click="Simu_Click"
+  Content="Simu">
+                        </Button>
+                        <materialDesign:PopupBox Grid.Column="2" 
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  PlacementMode="TopAndAlignCentres"
+  Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+  ToolTip="定位"
+  ToolTipService.Placement="Left" Cursor="Hand">
+                            <StackPanel>
+                                <Button Command="{Binding ResetRoboCommand}"
+      Content="ZERO" Opacity="0.6"
+      ToolTip="零位" />
+                                <Button Command="{Binding OriginalRoboCommand}"
+      Content="Orig" Opacity="0.6"
+      ToolTip="原始位置" />
+                                <Button Command="{Binding D3030RoboCommand}"
+      Content="3030" Opacity="0.6"
+      ToolTip="3030" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <materialDesign:PopupBox Grid.Column="3" 
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  PlacementMode="TopAndAlignCentres"
+  Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+  ToolTip="奇异点"
+  ToolTipService.Placement="Left" Cursor="Hand">
+                            <StackPanel>
+                                <Button Command="{Binding SingularRoboCommand}" CommandParameter="1"
+      Content="1"
+      ToolTip="奇异点一" />
+                                <Button Command="{Binding SingularRoboCommand}" CommandParameter="2"
+      Content="2"
+      ToolTip="奇异点二" />
+                                <Button Command="{Binding SingularRoboCommand}" CommandParameter="3"
+      Content="3"
+      ToolTip="奇异点三" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
