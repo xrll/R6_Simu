@@ -103,7 +103,7 @@ namespace R6_Simu
             wct = Math.Cos(cAng);
             wst = Math.Sin(cAng);
 
-            ct = 0.866;
+            ct = Math.Sqrt(3) / 2;
             st = 0.5;
             //ota2 = new double[] { -st, 0, -ct };
             //otn2 = new double[] { 0, 1, 0 };
@@ -128,9 +128,9 @@ namespace R6_Simu
             float mty = -m.M22 * 700 - m.M23 * 30;
             float mtz = -m.M32 * 700 - m.M33 * 30 + Tz * 10;
 
-            tn1 = new double[] { 0.866, st * 0.5, ct * 0.5 };
+            tn1 = new double[] { ct, st * 0.5, ct * 0.5 };
             to1 = new double[] { 0, -ct, st };
-            ta1 = new double[] { 0.5, -st * 0.866, -ct * 0.866 };
+            ta1 = new double[] { 0.5, -st * ct, -ct * ct };
             TPoint4 = new double[] { ntx - ta1[0] * pL, nty - ta1[1] * pL, ntz - ta1[2] * pL };
             TPoint3 = new double[] { ntx, nty, ntz };
             TPoint2 = new double[] { ntx, mty, mtz };
@@ -512,6 +512,7 @@ namespace R6_Simu
                         wAng = 0;
                     }
                     MainWindowViewModel.JointAngles[1] -= 0.2;
+                    MainWindowViewModel.JointAngles[4] -= 0.2;
                     double[] angles = new double[6];
                     MainWindowViewModel.JointAngles.CopyTo(angles, 0);
                     ForwardKinematics(angles);
